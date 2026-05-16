@@ -1,262 +1,809 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Swapneswar Sundar Ray | AI Systems Engineering</title>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swapneswar Sundar Ray | AI Systems Engineer</title>
+  <meta name="description" content="Swapneswar Sundar Ray - AI Systems Engineer specializing in Agentic AI, Enterprise API Architectures, Distributed Systems, and production-grade AI platforms." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #061a31;
+      --bg2: #082442;
+      --panel: rgba(9, 35, 64, 0.82);
+      --panel2: rgba(11, 45, 82, 0.78);
+      --line: rgba(118, 190, 255, 0.22);
+      --line2: rgba(255, 255, 255, 0.09);
+      --text: #f5f9ff;
+      --muted: #bed5ed;
+      --soft: #8ecbff;
+      --accent: #57b9ff;
+      --accent2: #1d8cff;
+      --green: #57d68d;
+      --white: #ffffff;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
     body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        background: #f4f6f9;
-        color: #1a1a1a;
-        line-height: 1.6;
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 86% 10%, rgba(0, 132, 255, 0.24), transparent 24%),
+        radial-gradient(circle at 0% 0%, rgba(33, 150, 243, 0.18), transparent 30%),
+        linear-gradient(135deg, #06172c 0%, #061d36 42%, #092a4e 100%);
+      color: var(--text);
+      line-height: 1.55;
+      min-height: 100vh;
     }
 
-    .header {
-        background: linear-gradient(135deg, #0a2342, #163d6b);
-        color: white;
-        padding: 50px 30px;
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .24;
+      background-image:
+        linear-gradient(rgba(102, 191, 255, .12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(102, 191, 255, .12) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: radial-gradient(circle at 90% 12%, #000 0%, transparent 42%);
     }
 
-    .header-content {
-        max-width: 1100px;
-        margin: auto;
-        display: flex;
-        gap: 40px;
-        align-items: center;
-        flex-wrap: wrap;
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 16px 24px;
     }
 
-    .photo-box {
-        width: 180px;
-        height: 180px;
-        border-radius: 14px;
-        background: rgba(255,255,255,0.15);
-        border: 2px dashed rgba(255,255,255,0.5);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        font-size: 15px;
-        padding: 10px;
+    .topbar {
+      height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(4, 17, 34, .92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(89, 178, 255, .15);
+      margin: 0 -16px 0;
+      padding: 0 34px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.18);
     }
 
-    .header-text h1 {
-        margin: 0;
-        font-size: 42px;
+    .brand {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -0.8px;
+      white-space: nowrap;
     }
 
-    .header-text h2 {
-        margin-top: 10px;
-        font-weight: normal;
-        color: #d7e6ff;
-        font-size: 22px;
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
     }
 
-    .header-text p {
-        max-width: 750px;
-        margin-top: 20px;
-        font-size: 17px;
+    .nav a {
+      color: #f4f8ff;
+      padding: 24px 0 20px;
+      border-bottom: 2px solid transparent;
+      opacity: .92;
     }
 
-    .links {
-        margin-top: 18px;
+    .nav a:hover,
+    .nav a.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
     }
 
-    .links a {
-        color: #ffffff;
-        text-decoration: none;
-        margin-right: 18px;
-        font-weight: bold;
+    .hero {
+      display: grid;
+      grid-template-columns: 290px 1fr 440px;
+      gap: 28px;
+      padding: 36px 28px 22px;
+      align-items: center;
     }
 
-    .container {
-        max-width: 1100px;
-        margin: auto;
-        padding: 40px 25px;
+    .photo-ring {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: 1.5px dashed rgba(220, 239, 255, .8);
+      background: radial-gradient(circle, rgba(255,255,255,.08), rgba(255,255,255,.02));
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      margin: 0 auto;
+      box-shadow: inset 0 0 40px rgba(255,255,255,.05), 0 20px 45px rgba(0,0,0,.20);
     }
 
-    .section {
-        background: white;
-        padding: 28px;
-        border-radius: 12px;
-        margin-bottom: 28px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    .photo-ring img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
-    h3 {
-        margin-top: 0;
-        color: #163d6b;
-        font-size: 26px;
-        border-bottom: 2px solid #e8eef7;
-        padding-bottom: 10px;
+    .hero h1 {
+      font-size: clamp(46px, 5vw, 68px);
+      line-height: .98;
+      letter-spacing: -2px;
+      margin: 0 0 12px;
+      font-weight: 900;
     }
+
+    .hero .role-title {
+      font-size: 24px;
+      line-height: 1.25;
+      margin-bottom: 16px;
+      color: var(--white);
+    }
+
+    .hero .role-title span { color: var(--accent); }
+
+    .contact-line {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      color: #dcefff;
+      font-size: 16px;
+      margin-bottom: 18px;
+    }
+
+    .mini-icon { color: var(--accent); font-weight: 900; }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border-radius: 8px;
+      padding: 11px 20px;
+      font-weight: 800;
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.08);
+      transition: transform .15s ease, background .15s ease;
+    }
+
+    .button:hover { transform: translateY(-1px); background: rgba(255,255,255,.14); }
+    .button.primary { background: #137dde; border-color: #137dde; box-shadow: 0 10px 24px rgba(19,125,222,.28); }
+
+    .impact-panel {
+      border: 1px solid var(--line);
+      background: rgba(9, 35, 64, .48);
+      border-radius: 10px;
+      padding: 18px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      box-shadow: var(--shadow);
+    }
+
+    .impact {
+      min-height: 104px;
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .impact:nth-child(2), .impact:nth-child(4) { border-right: 0; }
+    .impact:nth-child(3), .impact:nth-child(4) { border-bottom: 0; }
+    .impact svg { width: 42px; height: 42px; stroke: var(--accent); }
+    .impact strong { display: block; font-size: 26px; color: var(--accent); line-height: 1; }
+    .impact span { font-size: 14px; color: #e7f3ff; font-weight: 600; }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 290px 1fr;
+      gap: 18px;
+      padding: 0 0 0;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+
+    .sidebar {
+      padding: 20px 16px;
+      align-self: start;
+      position: sticky;
+      top: 82px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      font-weight: 900;
+      margin: 0 0 15px;
+    }
+
+    .section-title svg, .section-title .emoji {
+      width: 26px;
+      height: 26px;
+      color: var(--accent);
+      stroke: var(--accent);
+      flex: 0 0 auto;
+    }
+
+    .expertise-list {
+      display: grid;
+      gap: 13px;
+      margin-bottom: 22px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .expertise-list div {
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #eef7ff;
+    }
+
+    .tiny-icon {
+      width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+      font-size: 16px;
+    }
+
+    .skill-group { margin-bottom: 19px; }
+    .skill-group h4 {
+      margin: 0 0 8px;
+      color: #b7dcff;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .logo-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 7px;
+    }
+
+    .tech-logo {
+      width: 45px;
+      height: 42px;
+      border-radius: 7px;
+      background: #fff;
+      display: grid;
+      place-items: center;
+      padding: 5px;
+      overflow: hidden;
+      box-shadow: 0 8px 18px rgba(0,0,0,.16);
+    }
+
+    .tech-logo img { width: 100%; height: 100%; object-fit: contain; }
+    .skill-group p { margin: 0; color: #bfd6ee; font-size: 13px; }
+
+    .main { display: grid; gap: 14px; }
+    .main-panel { padding: 19px 20px; }
+
+    .about p {
+      margin: 0 0 12px;
+      color: #f3f9ff;
+      font-size: 15px;
+    }
+
+    .divider { border-top: 1px solid var(--line); margin: 14px 0; }
+
+    .contribution-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .contribution {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      min-height: 182px;
+      padding: 19px 14px;
+      text-align: center;
+      background: rgba(8, 32, 59, .64);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 14px;
+    }
+
+    .contribution svg {
+      width: 48px;
+      height: 48px;
+      stroke: var(--accent);
+    }
+
+    .contribution p {
+      color: #f2f8ff;
+      font-size: 13px;
+      line-height: 1.32;
+      margin: 0;
+    }
+
+    .experience-block { position: relative; padding-left: 34px; }
+    .experience-block::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 35px;
+      bottom: 18px;
+      width: 1px;
+      background: rgba(119, 193, 255, .7);
+    }
+
+    .exp-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 20px;
+      border-bottom: 1px solid var(--line2);
+      padding: 11px 0 18px;
+    }
+
+    .exp-item:last-child { border-bottom: 0; }
+    .exp-item::before {
+      content: "";
+      position: absolute;
+      left: -31px;
+      top: 30px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(87, 185, 255, .12);
+    }
+
+    .company-logo {
+      width: 150px;
+      height: 92px;
+      border-radius: 7px;
+      background: white;
+      display: grid;
+      place-items: center;
+      padding: 14px;
+      overflow: hidden;
+    }
+
+    .company-logo img { width: 100%; height: 100%; object-fit: contain; }
+
+    .exp-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--accent);
+      margin: 3px 0 2px;
+    }
+
+    .exp-meta { font-size: 14px; color: #f5faff; margin-bottom: 6px; }
+    .exp-meta strong { font-weight: 900; }
 
     ul {
-        padding-left: 20px;
+      margin: 0;
+      padding-left: 18px;
+      color: #e6f2ff;
+      font-size: 14px;
     }
 
-    li {
-        margin-bottom: 12px;
+    li { margin: 2px 0; }
+
+    .client-list {
+      display: grid;
+      gap: 9px;
+      margin-top: 8px;
     }
 
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
+    .client-row {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px 12px 8px 0;
+      align-items: center;
+      background: rgba(6, 26, 49, .45);
     }
 
-    .card {
-        background: #f8fbff;
-        border-left: 5px solid #163d6b;
-        padding: 18px;
-        border-radius: 10px;
+    .client-row .company-logo { height: 76px; border-radius: 6px; }
+
+    .research-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .research-table td {
+      border-top: 1px solid var(--line2);
+      padding: 12px 8px;
+      color: #edf6ff;
+      vertical-align: middle;
+    }
+    .doi {
+      display: inline-block;
+      background: #0975d7;
+      color: white;
+      padding: 7px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      white-space: nowrap;
     }
 
-    .footer {
-        text-align: center;
-        padding: 30px;
-        color: #666;
-        font-size: 14px;
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: .9fr .95fr 1.3fr;
+      gap: 14px;
+      margin-top: 14px;
     }
-</style>
+
+    .mini-panel { padding: 17px 18px; }
+    .mini-panel ul { font-size: 14px; }
+    .check-list { list-style: none; padding-left: 0; }
+    .check-list li::before { content: "●"; color: var(--green); margin-right: 9px; }
+
+    .interest-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      background: rgba(255,255,255,.07);
+      border: 1px solid var(--line2);
+      color: #ecf6ff;
+      border-radius: 6px;
+      padding: 7px 10px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    footer {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 14px;
+      padding: 17px 24px 0;
+      color: #eaf5ff;
+      font-size: 13px;
+    }
+
+    .footer-icons {
+      display: flex;
+      justify-content: flex-end;
+      gap: 20px;
+      color: #96d2ff;
+      font-size: 18px;
+    }
+
+    @media (max-width: 1100px) {
+      .hero, .layout { grid-template-columns: 1fr; }
+      .impact-panel { max-width: 640px; }
+      .sidebar { position: static; }
+      .contribution-grid { grid-template-columns: repeat(2, 1fr); }
+      .bottom-grid { grid-template-columns: 1fr; }
+      .nav { gap: 14px; font-size: 12px; }
+    }
+
+    @media (max-width: 720px) {
+      .topbar { height: auto; padding: 16px; align-items: flex-start; flex-direction: column; }
+      .hero { padding: 24px 4px; }
+      .photo-ring { width: 180px; height: 180px; }
+      .impact-panel { grid-template-columns: 1fr; }
+      .impact { border-right: 0; }
+      .impact:nth-child(3) { border-bottom: 1px solid var(--line); }
+      .exp-item, .client-row { grid-template-columns: 1fr; }
+      .company-logo { width: 160px; }
+      .contribution-grid { grid-template-columns: 1fr; }
+      footer { grid-template-columns: 1fr; text-align: center; }
+      .footer-icons { justify-content: center; }
+    }
+  </style>
 </head>
 <body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">Swapneswar Sundar Ray</div>
+      <nav class="nav">
+        <a class="active" href="#home">⌂ Home</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#research">Research</a>
+        <a href="publications.html">Publications</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-<div class="header">
-    <div class="header-content">
-        <div class="photo-box">
-            Place Professional Photo Here
+    <section id="home" class="hero">
+      <div class="photo-ring">
+        <img src="Headshot.png" alt="Swapneswar Sundar Ray professional headshot" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=&quot;text-align:center;color:#dcefff;font-weight:700;&quot;>📷<br>Your Photo<br><small>Save image as Headshot.png</small></div>'" />
+      </div>
+
+      <div>
+        <h1>Swapneswar<br />Sundar Ray</h1>
+        <div class="role-title"><span>AI Systems Engineer | Agentic AI</span><br />Enterprise Systems &amp; API Architectures</div>
+        <div class="contact-line">
+          <span><span class="mini-icon">●</span> USA</span>
+          <span>|</span>
+          <span><span class="mini-icon">✉</span> Swapneswar.ray@gmail.com</span>
+        </div>
+        <div class="hero-actions">
+          <a class="button" href="publications.html">📚 Publications</a>
+          <a class="button primary" href="https://www.linkedin.com/in/swapneswarsundarray/" target="_blank" rel="noopener">in&nbsp; LinkedIn ↗</a>
+          <a class="button" href="https://github.com/swapneswarsundarray/" target="_blank" rel="noopener">◖◗ GitHub ↗</a>
+        </div>
+      </div>
+
+      <div class="impact-panel" aria-label="Professional impact summary">
+        <div class="impact">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M9 3a3 3 0 0 0-3 3v1a3 3 0 0 0-2 5 3 3 0 0 0 2 5v1a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z"/><path d="M15 3a3 3 0 0 1 3 3v1a3 3 0 0 1 2 5 3 3 0 0 1-2 5v1a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3Z"/></svg>
+          <div><strong>15+</strong><span>Years of Experience</span></div>
+        </div>
+        <div class="impact">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M9 21v-6h6v6"/><path d="M8 10h.01M12 10h.01M16 10h.01"/></svg>
+          <div><strong>10+</strong><span>Enterprise Engagements</span></div>
+        </div>
+        <div class="impact">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.65 1.65 0 0 0 15 19.4a1.65 1.65 0 0 0-1 .6 1.65 1.65 0 0 0-.33 1.82 2 2 0 1 1-3.34 0A1.65 1.65 0 0 0 10 20a1.65 1.65 0 0 0-1-.6 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-.6-1 1.65 1.65 0 0 0-1.82-.33 2 2 0 1 1 0-3.34A1.65 1.65 0 0 0 4 10a1.65 1.65 0 0 0 .6-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-.6 1.65 1.65 0 0 0 .33-1.82 2 2 0 1 1 3.34 0A1.65 1.65 0 0 0 14 4a1.65 1.65 0 0 0 1 .6 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9c.2.32.38.66.6 1a1.65 1.65 0 0 0 1.82.33 2 2 0 1 1 0 3.34A1.65 1.65 0 0 0 20 14a1.65 1.65 0 0 0-.6 1Z"/></svg>
+          <div><strong>AI-Driven</strong><span>Solutions Architected</span></div>
+        </div>
+        <div class="impact">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></svg>
+          <div><strong>Mission-Critical</strong><span>Systems in Regulated Environments</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="layout">
+      <aside id="skills" class="sidebar panel">
+        <h2 class="section-title"><span class="emoji">⚙</span> Expertise</h2>
+        <div class="expertise-list">
+          <div><span class="tiny-icon">✺</span> Agentic AI</div>
+          <div><span class="tiny-icon">✺</span> Generative AI</div>
+          <div><span class="tiny-icon">⌘</span> AI-Assisted Engineering</div>
+          <div><span class="tiny-icon">▣</span> API Architecture</div>
+          <div><span class="tiny-icon">☷</span> OpenAPI / Swagger Automation</div>
+          <div><span class="tiny-icon">▦</span> Distributed Systems</div>
+          <div><span class="tiny-icon">◎</span> Event-Driven Systems (Kafka)</div>
+          <div><span class="tiny-icon">✣</span> Microservices</div>
+          <div><span class="tiny-icon">◉</span> Observability &amp; Reliability</div>
+          <div><span class="tiny-icon">⌂</span> Legacy Modernization</div>
         </div>
 
-        <div class="header-text">
-            <h1>Swapneswar Sundar Ray</h1>
-            <h2>AI Systems Engineering | Distributed Systems | Enterprise Architecture</h2>
+        <h2 class="section-title"><span class="emoji">🛠</span> Technical Skills</h2>
 
-            <p>
-                Technology leader and software engineering professional with extensive experience building enterprise-scale distributed systems, AI-assisted platforms, API ecosystems, microservices, and intelligent automation solutions across banking, financial services, insurance, and retail domains.
-            </p>
-
-            <div class="links">
-                <a href="https://www.linkedin.com/in/swapneswarsundarray/" target="_blank">LinkedIn</a>
-                <a href="https://github.com/" target="_blank">GitHub</a>
-                <a href="mailto:swapneswar.ray@gmail.com">Email</a>
-            </div>
+        <div class="skill-group">
+          <h4>AI &amp; Agentic Systems</h4>
+          <div class="logo-row">
+            <span class="tech-logo"><img src="https://cdn.simpleicons.org/openai/000000" alt="OpenAI"></span>
+            <span class="tech-logo"><img src="https://avatars.githubusercontent.com/u/126733545?s=200&v=4" alt="LangChain"></span>
+            <span class="tech-logo"><img src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/langgraph.png" alt="LangGraph"></span>
+            <span class="tech-logo"><img src="https://cdn.simpleicons.org/kubernetes/326CE5" alt="MCP/Systems"></span>
+          </div>
+          <p>Agentic AI, Generative AI, LangChain, LangGraph, MCP, Prompt Engineering</p>
         </div>
-    </div>
-</div>
 
-<div class="container">
-
-    <div class="section">
-        <h3>Professional Summary</h3>
-        <p>
-            Specialized in enterprise AI systems, distributed architectures, intelligent orchestration platforms, API governance, and production-scale software engineering. Experience includes leading architecture and engineering initiatives involving AI-assisted systems, service virtualization, API lifecycle automation, observability frameworks, and operational reliability for enterprise environments.
-        </p>
-
-        <p>
-            Focus areas include governed AI systems, code-first enterprise AI architectures, AI-assisted API ecosystems, runtime orchestration, platform reliability, and scalable intelligent infrastructure for modern enterprise applications.
-        </p>
-    </div>
-
-    <div class="section">
-        <h3>Core Areas of Expertise</h3>
-
-        <div class="grid">
-            <div class="card">
-                <strong>Enterprise AI Systems</strong>
-                <p>AI-assisted orchestration, governed AI workflows, runtime reliability, intelligent execution systems, operational AI governance.</p>
-            </div>
-
-            <div class="card">
-                <strong>Distributed Systems</strong>
-                <p>Microservices, event-driven systems, scalable architecture, service communication, observability, reliability engineering.</p>
-            </div>
-
-            <div class="card">
-                <strong>API Platforms</strong>
-                <p>API governance, API lifecycle automation, service virtualization, SDK generation, OpenAPI-driven systems.</p>
-            </div>
-
-            <div class="card">
-                <strong>Cloud & Infrastructure</strong>
-                <p>Kubernetes, cloud-native systems, container orchestration, production deployment pipelines, operational monitoring.</p>
-            </div>
+        <div class="skill-group">
+          <h4>Architecture &amp; Backend</h4>
+          <div class="logo-row">
+            <span class="tech-logo"><img src="https://cdn.simpleicons.org/openjdk/F80000" alt="Java"></span>
+            <span class="tech-logo"><img src="https://cdn.simpleicons.org/spring/6DB33F" alt="Spring Boot"></span>
+            <span class="tech-logo"><img src="https://cdn.simpleicons.org/fastapi/009688" alt="REST APIs"></span>
+            <span class="tech-logo"><img src="https://cdn.simpleicons.org/docker/2496ED" alt="Microservices"></span>
+          </div>
+          <p>Java, Spring Boot, REST APIs, Microservices, Distributed Systems</p>
         </div>
+
+        <div class="skill-group">
+          <h4>API &amp; Integration</h4>
+          <div class="logo-row">
+            <span class="tech-logo"><img src="https://cdn.simpleicons.org/googlecloud/4285F4" alt="Apigee"></span>
+            <span class="tech-logo"><img src="https://cdn.simpleicons.org/openapiinitiative/6BA539" alt="OpenAPI"></span>
+            <span class="tech-logo"><img src="https://cdn.simpleicons.org/swagger/85EA2D" alt="Swagger"></span>
+            <span class="tech-logo"><img src="https://cdn.simpleicons.org/ibm/052FAD" alt="IBM MQ"></span>
+          </div>
+          <p>APIGEE, OpenAPI/Swagger, API Gateways, IBM DataPower, IBM MQ</p>
+        </div>
+
+        <div class="skill-group">
+          <h4>Event &amp; Data Systems</h4>
+          <div class="logo-row">
+            <span class="tech-logo"><img src="https://cdn.simpleicons.org/apachekafka/000000" alt="Kafka"></span>
+            <span class="tech-logo"><img src="https://cdn.simpleicons.org/mongodb/47A248" alt="MongoDB"></span>
+            <span class="tech-logo"><img src="https://cdn.simpleicons.org/oracle/F80000" alt="Oracle"></span>
+            <span class="tech-logo"><img src="https://cdn.simpleicons.org/ibm/052FAD" alt="DB2"></span>
+          </div>
+          <p>Kafka, MongoDB, Oracle, DB2, SQL Server</p>
+        </div>
+
+        <div class="skill-group">
+          <h4>Cloud &amp; DevOps</h4>
+          <div class="logo-row">
+            <span class="tech-logo"><img src="https://cdn.simpleicons.org/amazonaws/232F3E" alt="AWS"></span>
+            <span class="tech-logo"><img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker"></span>
+            <span class="tech-logo"><img src="https://cdn.simpleicons.org/jenkins/D24939" alt="Jenkins"></span>
+            <span class="tech-logo"><img src="https://cdn.simpleicons.org/git/F05032" alt="Git"></span>
+          </div>
+          <p>AWS, Docker, Jenkins, CI/CD, Git</p>
+        </div>
+
+        <div class="skill-group">
+          <h4>Observability &amp; Security</h4>
+          <div class="logo-row">
+            <span class="tech-logo"><img src="https://cdn.simpleicons.org/splunk/000000" alt="Splunk"></span>
+            <span class="tech-logo"><img src="https://cdn.simpleicons.org/datadog/632CA6" alt="Datadog"></span>
+            <span class="tech-logo"><img src="https://cdn.simpleicons.org/cyberdefenders/335EEA" alt="CyberArk"></span>
+          </div>
+          <p>Splunk, Datadog, CyberArk</p>
+        </div>
+      </aside>
+
+      <main class="main">
+        <section id="about" class="main-panel panel about">
+          <h2 class="section-title"><span class="emoji">👤</span> About Me</h2>
+          <p>AI Systems Engineer with 15+ years of experience building scalable distributed systems, enterprise API platforms, and production-grade software. Specializes in Agentic AI, Generative AI-assisted engineering, and API-driven architectures, with a focus on making AI systems reliable, controllable, and production-ready.</p>
+          <p>Architect of OpenAPI-driven automation, API sandbox simulation, and intelligent workflow orchestration, combining AI reasoning with deterministic system validation to improve software quality and delivery efficiency. Proven experience delivering mission-critical systems in regulated domains including banking and financial services.</p>
+          <div class="divider"></div>
+          <h2 class="section-title"><span class="emoji">🚀</span> Key Contributions</h2>
+          <div class="contribution-grid">
+            <div class="contribution"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/><path d="m14 4-4 16"/></svg><p>Designed AI-driven API sandbox automation framework enabling early integration testing and simulation before backend readiness</p></div>
+            <div class="contribution"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-5"/></svg><p>Built OpenAPI-based validation and mock generation systems to standardize API development workflows</p></div>
+            <div class="contribution"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M9 3a3 3 0 0 0-3 3v1a3 3 0 0 0-2 5 3 3 0 0 0 2 5v1a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z"/><path d="M15 3a3 3 0 0 1 3 3v1a3 3 0 0 1 2 5 3 3 0 0 1-2 5v1a3 3 0 0 1-6 0V6a3 3 0 0 1 3-3Z"/></svg><p>Developed AI-assisted engineering pipelines integrating LLM reasoning with rule-based validation</p></div>
+            <div class="contribution"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M9 21v-6h6v6"/></svg><p>Delivered enterprise API platforms and dispute-processing systems in regulated banking environments</p></div>
+            <div class="contribution"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-7"/><path d="M19 7h-5"/><path d="M19 7v5"/></svg><p>Improved system observability and reliability using monitoring, logging, and automated alerting frameworks</p></div>
+          </div>
+        </section>
+
+        <section id="experience" class="main-panel panel">
+          <h2 class="section-title"><span class="emoji">🧭</span> Professional Experience</h2>
+          <div class="experience-block">
+            <div class="exp-item">
+              <div class="company-logo"><img src="https://logo.clearbit.com/usbank.com" alt="U.S. Bank logo" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/U.S._Bank_logo.svg/512px-U.S._Bank_logo.svg.png'" ></div>
+              <div>
+                <div class="exp-title">Assistant Vice President – AI Systems Engineering</div>
+                <div class="exp-meta"><strong>U.S. Bank</strong> | 2023 – Present</div>
+                <ul>
+                  <li>Leading Agentic AI-driven API sandbox modernization using OpenAPI-based automation</li>
+                  <li>Designing intelligent validation, mock generation, and simulation frameworks for enterprise APIs</li>
+                  <li>Driving AI-assisted engineering practices to improve development speed, quality, and consistency</li>
+                  <li>Architecting secure APIGEE-based API ecosystems for regulated banking platforms</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="exp-item">
+              <div class="company-logo"><img src="https://logo.clearbit.com/adp.com" alt="ADP logo" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Automatic_Data_Processing_logo.svg/512px-Automatic_Data_Processing_logo.svg.png'" ></div>
+              <div>
+                <div class="exp-title">Senior Software Engineer / Technical Lead</div>
+                <div class="exp-meta"><strong>Automatic Data Processing (ADP)</strong> | Roseland, NJ | 2022 – 2023</div>
+                <ul>
+                  <li>Delivered enterprise-scale backend systems and high-volume payroll data processing workflows</li>
+                  <li>Built Kafka-based event pipelines and MongoDB-backed ingestion systems for scalable data processing</li>
+                  <li>Implemented observability frameworks including Splunk dashboards and alerting to enhance production reliability</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="exp-item">
+              <div></div>
+              <div>
+                <div class="exp-title">Technical Lead / Senior Developer <span style="color:#dcefff;font-weight:600;">(Consulting via Tata Consultancy Services)</span> <span style="color:#dcefff;font-weight:500;float:right;">2011 – 2022</span></div>
+                <div class="client-list">
+                  <div class="client-row">
+                    <div class="company-logo"><img src="https://logo.clearbit.com/avis.com" alt="Avis Budget Group logo" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Avis_Budget_Group_logo.svg/512px-Avis_Budget_Group_logo.svg.png'" ></div>
+                    <div>
+                      <div class="exp-meta"><strong>Avis Budget Group</strong> | Parsippany, NJ</div>
+                      <ul><li>Led modernization of reservation platforms from mainframe to Java-based microservices</li><li>Built event-driven systems using IBM MQ and integrated IoT-enabled operational workflows</li></ul>
+                    </div>
+                  </div>
+                  <div class="client-row">
+                    <div class="company-logo"><img src="https://logo.clearbit.com/mmiholdings.com" alt="MMI Holdings logo"></div>
+                    <div>
+                      <div class="exp-meta"><strong>MMI Holdings</strong> | Cape Town, South Africa</div>
+                      <ul><li>Developed healthcare and insurance workflow automation systems</li><li>Built data integration pipelines for EHR/PHR, policy, and customer data processing</li></ul>
+                    </div>
+                  </div>
+                  <div class="client-row">
+                    <div class="company-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Toys_%22R%22_Us_logo.svg/512px-Toys_%22R%22_Us_logo.svg.png" alt="Toys R Us logo" onerror="this.src='https://logo.clearbit.com/toysrus.com'" ></div>
+                    <div>
+                      <div class="exp-meta"><strong>Toys&quot;R&quot;Us</strong> | Mumbai, India</div>
+                      <ul><li>Developed e-commerce modules including Baby Registry and omni-channel workflows</li><li>Built RESTful APIs and backend automation for customer, billing, and inventory systems</li></ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="research" class="main-panel panel">
+          <h2 class="section-title"><span class="emoji">📖</span> Research &amp; Publications <span style="font-size:13px;font-weight:600;text-transform:none;">(Preprints)</span></h2>
+          <table class="research-table">
+            <tr>
+              <td style="width:28px;">📄</td>
+              <td>From Liveness to Intelligence: AI-Assisted Health Scoring for Microservice Reliability</td>
+              <td><a class="doi" href="https://doi.org/10.5281/zenodo.19830967" target="_blank" rel="noopener">https://doi.org/10.5281/zenodo.19830967</a></td>
+              <td>2026</td>
+            </tr>
+            <tr>
+              <td>📄</td>
+              <td>Autonomous API Sandbox Generation Using Agentic AI</td>
+              <td><a class="doi" href="https://doi.org/10.5281/zenodo.19753050" target="_blank" rel="noopener">https://doi.org/10.5281/zenodo.19753050</a></td>
+              <td>2026</td>
+            </tr>
+          </table>
+        </section>
+      </main>
     </div>
 
-    <div class="section">
-        <h3>Selected Technical Contributions</h3>
-
+    <div id="education" class="bottom-grid">
+      <section class="panel mini-panel">
+        <h2 class="section-title"><span class="emoji">🎓</span> Education</h2>
         <ul>
-            <li>Designed and developed enterprise-grade AI-assisted API sandbox generation concepts using code-first architecture and controlled orchestration models.</li>
-
-            <li>Worked on governed AI integration approaches focused on reliability, deterministic execution boundaries, and enterprise operational safety.</li>
-
-            <li>Contributed to distributed microservice modernization initiatives involving APIs, cloud-native deployment models, observability systems, and platform reliability engineering.</li>
-
-            <li>Developed architectural concepts around intelligent operational scoring, runtime orchestration, and AI-assisted monitoring systems.</li>
-
-            <li>Built enterprise API ecosystems supporting scalable integrations, SDK generation, contract validation, and developer onboarding acceleration.</li>
+          <li><strong>MCA</strong><br />Indira Gandhi University</li>
+          <li><strong>B.Sc. Physics</strong><br />Utkal University</li>
         </ul>
-    </div>
-
-    <div class="section">
-        <h3>Research & Writing Focus</h3>
-
-        <div class="grid">
-            <div class="card">
-                <strong>Enterprise AI Governance</strong>
-                <p>Controlled AI systems, operational boundaries, deterministic validation, production reliability.</p>
-            </div>
-
-            <div class="card">
-                <strong>AI + Distributed Systems</strong>
-                <p>Operational drift, orchestration reliability, memory consistency, runtime coordination.</p>
-            </div>
-
-            <div class="card">
-                <strong>API Intelligence</strong>
-                <p>AI-assisted API systems, capability layers, service virtualization, intelligent API automation.</p>
-            </div>
-
-            <div class="card">
-                <strong>Reliability Engineering</strong>
-                <p>AI-assisted health scoring, operational monitoring, microservice reliability patterns.</p>
-            </div>
+      </section>
+      <section class="panel mini-panel">
+        <h2 class="section-title"><span class="emoji">🏅</span> Certifications</h2>
+        <ul class="check-list">
+          <li>Microsoft Azure AI Fundamentals (AI-900)</li>
+          <li>Microsoft Azure Fundamentals (AZ-900)</li>
+          <li>Oracle Certified Java Professional</li>
+        </ul>
+      </section>
+      <section class="panel mini-panel">
+        <h2 class="section-title"><span class="emoji">☆</span> Interests</h2>
+        <div class="interest-tags">
+          <span class="tag">Agentic AI</span>
+          <span class="tag">Generative AI in Software Engineering</span>
+          <span class="tag">Distributed Systems</span>
+          <span class="tag">API Architectures</span>
+          <span class="tag">Enterprise AI Integration</span>
+          <span class="tag">Workflow Orchestration</span>
+          <span class="tag">Applied AI Systems</span>
         </div>
+      </section>
     </div>
 
-    <div class="section">
-        <h3>Speaking & Technical Discussion Topics</h3>
+    <footer id="contact">
+      <div>Swapneswar Sundar Ray</div>
+      <div>Building Intelligent, Reliable &amp; Scalable Systems for the AI Era</div>
+      <div class="footer-icons">
+        <a href="https://www.linkedin.com/in/swapneswarsundarray/" target="_blank" rel="noopener">in</a>
+        <a href="https://github.com/swapneswarsundarray/" target="_blank" rel="noopener">◖◗</a>
+        <a href="mailto:swapneswar.ray@gmail.com">✉</a>
+      </div>
+    </footer>
 
-        <ul>
-            <li>Why Enterprise AI Systems Drift in Production</li>
-            <li>Code-First vs LLM-First Enterprise Architectures</li>
-            <li>Governed AI Systems for Enterprise Reliability</li>
-            <li>Operational Failure Patterns in Distributed AI Systems</li>
-            <li>AI-Assisted API Sandbox Creation at Enterprise Scale</li>
-            <li>Controlled Capability Layers for LLM Tooling</li>
-        </ul>
-    </div>
 
-    <div class="section">
-        <h3>Community & Professional Activities</h3>
-
-        <ul>
-            <li>Technical writing and publication development in AI systems, distributed systems, and enterprise engineering.</li>
-            <li>Participation in reviewer, judging, mentoring, and technical community activities.</li>
-            <li>Active interest in AI engineering communities, developer conferences, and enterprise architecture discussions.</li>
-            <li>Focus on practical production-grade AI engineering approaches rather than demo-oriented experimentation.</li>
-        </ul>
-    </div>
-
-</div>
-
-<div class="footer">
-    © 2026 Swapneswar Sundar Ray | AI Systems Engineering & Enterprise Architecture
-</div>
-
+  </div>
 </body>
 </html>
